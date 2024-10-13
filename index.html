@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Modal de Contraseña</title>
+    <style>
+        /* Estilos para el modal */
+        #modal {
+            display: flex;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        #modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #modal input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #modal button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal para ingresar contraseña -->
+    <div id="modal">
+        <div id="modal-content">
+            <h2>Introduce la contraseña para continuar</h2>
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="verificarContraseña()">Entrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Función para verificar la contraseña
+        function verificarContraseña() {
+            const password = document.getElementById('password').value;
+            if (password === 'Jorgitotupatron') {
+                // Si la contraseña es correcta, redirige a la página deseada
+                window.location.href = 'canciones.html';
+            } else {
+                alert('Contraseña incorrecta, intenta nuevamente.');
+            }
+        }
+    </script>
+</body>
+</html>

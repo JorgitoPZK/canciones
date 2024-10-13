@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Bienvenida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Pantalla de Bienvenida -->
+    <div id="bienvenida">
+        <h1>¡Hola preciosa!</h1>
+        <p>Te dedico todas estas canciones mi amor ❤️.</p>
+    </div>
+
+    <!-- Pantalla de Videos -->
+    <div id="pantalla-videos" class="hidden">
+        <h2>Puchale a la que quieras escuchar</h2>
+        <div class="button-container">
+            <!-- Aquí los botones que mostrarán los videos -->
+            <button onclick="mostrarVideo('music/cancion1.mp4')">Canción 1</button>
+            <button onclick="mostrarVideo('music/cancion2.mp4')">Canción 2</button>
+            <button onclick="mostrarVideo('music/cancion3.mp4')">Canción 3</button>
+            <button onclick="mostrarVideo('music/cancion4.mp4')">Canción 4</button>
+            <button onclick="mostrarVideo('music/cancion5.mp4')">Canción 5</button>
+            <button onclick="mostrarVideo('music/cancion6.mp4')">Canción 6</button>
+            <button onclick="mostrarVideo('music/cancion7.mp4')">Canción 7</button>
+            <button onclick="mostrarVideo('music/cancion8.mp4')">Canción 8</button>
+            <button onclick="mostrarVideo('music/cancion9.mp4')">Canción 9</button>
+            <button onclick="mostrarVideo('music/cancion10.mp4')">Canción 10</button>
+            <!-- Repite para los otros 17 botones -->
+        </div>
+        <div id="video-container">
+            <video id="video-player" width="560" height="315" controls>
+                <source id="video-source" src="" type="video/mp4">
+                Tu navegador no soporta la reproducción de videos.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Animación de la pantalla de bienvenida
+        setTimeout(() => {
+            document.getElementById('bienvenida').classList.add('fade-out');
+            setTimeout(() => {
+                document.getElementById('bienvenida').style.display = 'none';
+                document.getElementById('pantalla-videos').classList.remove('hidden');
+            }, 1000); // Tiempo para la animación de salida
+        }, 3000); // Duración de la pantalla de bienvenida
+
+        // Función para mostrar el video local
+        function mostrarVideo(videoFile) {
+            const videoPlayer = document.getElementById('video-player');
+            const videoSource = document.getElementById('video-source');
+            videoSource.src = videoFile; // Establece el archivo de video
+            videoPlayer.load(); // Carga el nuevo video
+            videoPlayer.play(); // Reproduce automáticamente
+        }
+    </script>
+</body>
+
+</html>
